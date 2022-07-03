@@ -3,6 +3,7 @@ import { ActionTypes } from "../constants/actionTypes";
 const initialState = [];
 
 export const usersReducer = (state = initialState, { type, payload }) => {
+  console.log(payload);
   switch (type) {
     case ActionTypes.GET_USERS:
       return [...payload.items];

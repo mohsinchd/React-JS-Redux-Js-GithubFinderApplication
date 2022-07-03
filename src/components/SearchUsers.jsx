@@ -14,13 +14,10 @@ const SearchUsers = () => {
   const fetchUsers = async () => {
     setSpinner(true);
     const fetchedUsers = await fetch(
-      `https://api.github.com/search/users?q=${userInput}`,
-      {
-        headers: {
-          authorization: "token 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",
-        },
-      }
+      `https://api.github.com/search/users?q=${userInput}`
     );
+
+    console.log(fetchedUsers);
 
     const data = await fetchedUsers.json();
     dispatch(setUsers(data));

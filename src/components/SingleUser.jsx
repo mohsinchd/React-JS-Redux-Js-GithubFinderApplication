@@ -18,23 +18,14 @@ const SingleUser = () => {
   console.log(singleUser);
 
   const fetchUser = async () => {
-    const fetchedData = await fetch(`https://api.github.com/users/${name}`, {
-      headers: {
-        authorization: "token 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",
-      },
-    });
+    const fetchedData = await fetch(`https://api.github.com/users/${name}`);
     const user = await fetchedData.json();
     dispatch(setSingleUser(user));
   };
 
   const fetchRepos = async () => {
     const fetchedRepos = await fetch(
-      `https://api.github.com/users/${name}/repos`,
-      {
-        headers: {
-          authorization: "token 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",
-        },
-      }
+      `https://api.github.com/users/${name}/repos`
     );
 
     const reps = await fetchedRepos.json();
